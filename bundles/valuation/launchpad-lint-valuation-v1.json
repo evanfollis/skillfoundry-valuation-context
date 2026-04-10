@@ -1,0 +1,57 @@
+{
+  "schema_version": "1.0",
+  "bundle_id": "launchpad-lint-valuation-v1",
+  "purpose": "Initial valuation model and success thresholds for Launchpad Lint.",
+  "owners": [
+    {
+      "name": "Skillfoundry Valuation",
+      "contact": "agent://valuation"
+    }
+  ],
+  "sources": [
+    {
+      "kind": "doc",
+      "locator": "skillfoundry-pricing-context://bundles/pricing/launchpad-lint-pricing-v1.json",
+      "captured_at": "2026-04-06T00:00:00Z",
+      "notes": "Initial pricing and validation assumptions."
+    },
+    {
+      "kind": "doc",
+      "locator": "skillfoundry-growth-context://bundles/launch/launchpad-lint-agenticmarket-v1.json",
+      "captured_at": "2026-04-06T00:00:00Z",
+      "notes": "Channel and activation framing."
+    },
+    {
+      "kind": "doc",
+      "locator": "skillfoundry-valuation-context://memory/findings/launchpad_lint_measurement_model.md",
+      "captured_at": "2026-04-06T00:00:00Z",
+      "notes": "Measurement model and update rules."
+    }
+  ],
+  "content": [
+    {
+      "id": "success-threshold",
+      "type": "summary",
+      "body": "Count the first launch cycle as successful only if at least one user completes the full two-call activation path, reports reduced launch ambiguity, and needs only light editing afterward.",
+      "source_refs": [1, 2]
+    },
+    {
+      "id": "economic-check",
+      "type": "constraint",
+      "body": "Do not treat price as the primary problem unless output quality and activation are already strong enough to justify that conclusion.",
+      "source_refs": [0, 2]
+    },
+    {
+      "id": "update-rule",
+      "type": "instruction",
+      "body": "Route learning back to growth, designer, builder, pricing, or researcher depending on whether the failure is positioning, output quality, price, or mistaken bottleneck selection.",
+      "source_refs": [2]
+    }
+  ],
+  "promotion": {
+    "status": "candidate",
+    "reviewed_at": "2026-04-06T00:00:00Z",
+    "compatibility": "additive",
+    "notes": "First valuation frame for Launchpad Lint."
+  }
+}

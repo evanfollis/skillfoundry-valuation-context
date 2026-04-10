@@ -4,7 +4,14 @@ name = "Valuation Context"
 agent_id = "valuation"
 
 [frontdoor]
-pinned_paths = ['README.md', 'memory/mission.md', 'memory/profiles/valuation.md']
+pinned_paths = [
+  'README.md',
+  'memory/mission.md',
+  'memory/profiles/valuation.md',
+  'memory/findings/launchpad_lint_measurement_model.md',
+  'memory/decisions/launchpad_lint_success_threshold.md',
+  'memory/plans/launchpad_lint_learning_loop.md'
+]
 discoverable_paths = ['bundles', 'memory', 'artifacts']
 
 [promotion_policy]

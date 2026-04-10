@@ -8,3 +8,6 @@ and go, but this context lineage remains the durable working mind.
 
 - `memory/mission.md`
 - `memory/profiles/valuation.md`
+- `memory/findings/launchpad_lint_measurement_model.md`
+- `memory/decisions/launchpad_lint_success_threshold.md`
+- `memory/plans/launchpad_lint_learning_loop.md`
