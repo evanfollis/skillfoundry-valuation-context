@@ -4,6 +4,9 @@
 
 Translate the current `launchpad-lint` launch plan into a measurable learning model.
 
+This file remains the compact measurement view. The canonical Stage 1 controller
+records now live under `memory/venture/`.
+
 ## Core Prediction Chain
 
 The current system is implicitly predicting:
@@ -31,6 +34,7 @@ The current system is implicitly predicting:
 
 - calls per first session
 - repeat usage within the first launch cycle
+- external commitment or transaction signal tied to a real builder
 
 ## Failure Modes To Detect Early
 
