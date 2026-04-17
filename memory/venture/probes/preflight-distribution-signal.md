@@ -40,3 +40,9 @@ Known crawler/non-user UA substrings (exclude from signal):
 - `./products/preflight/scripts/usage.sh "24 hours ago"` — daily summary
 - `preflight-watcher.service` — real-time alert to `/opt/workspace/runtime/.alerts/preflight-real-user.log`
 - Weekly cron: `/var/log/preflight-usage-weekly.log`
+
+**Telemetry slug cutover — 2026-04-17T09:16:26Z:**
+- Prior to this timestamp, `preflight.service` emitted `assumptionId: mcp-builders-need-publish-readiness-check` and `probeId: preflight-publish-readiness` (ad-hoc slugs with no corresponding venture files).
+- After restart at 2026-04-17T09:16:26Z, events emit `assumptionId: preflight-distribution-signal-assumption` and `probeId: preflight-distribution-signal`, aligned to formal venture files.
+- Formal assumption file created: `memory/venture/assumptions/preflight-distribution-signal-assumption.md`.
+- Cross-joins on `probeId` or `assumptionId` that span the cutover boundary should filter by timestamp. Evidence recorded before cutover (including `2026-04-14-preflight-first-real-user-call.md`) was attributed using the probe file slug directly, not the watcher's stale slug — so prior evidence attribution is unaffected.
