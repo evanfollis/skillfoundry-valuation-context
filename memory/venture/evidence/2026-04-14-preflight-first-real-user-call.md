@@ -51,3 +51,22 @@ This evidence file uses the log's `assumption_id` verbatim (preserving provenanc
 ## Apr 16 httpx session — excluded
 
 A `python-httpx` UA session on Apr 16 scanned multiple directories and returned `fixable` results. Filtered by watcher IGNORE_RE. Insufficient attribution — do not record.
+
+## Watcher reclassification — 2026-04-17 (tick 20:38Z)
+
+**Finding**: `latencyMs` field measures server-side processing time, NOT network round-trip. The claim in ADR-0019 and the watcher discrimination handoff that "0-1ms = loopback" is incorrect. Do not use latencyMs for origin discrimination.
+
+**Source investigation**: 11,358 `Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36` events recorded 2026-04-17 06:00-17:00 UTC. These are MCP auto-connect/reconnect sessions from Claude.ai client or operator self-testing. None are confirmed external-user signals. 188 events reached `tools/call` (watcher-visible) but ALL are Mozilla/Linux UA; none have confirmed external provenance.
+
+**Retrofit applied**: `real-user-watcher.sh` updated with:
+- `Mozilla.*Linux` added to IGNORE_RE (proxy rule, conservative — excludes any genuine external user on Linux/Chrome until sourceType is live)
+- `sourceType` gate added: events with `sourceType=smoke|system|cron` excluded (active once service is redeployed with 4907d26 changes)
+
+**Reclassification result** (7-day window, tools/call events):
+- Pre-retrofit REAL-USER: 189 (188 Mozilla/Linux + 1 curl)
+- Post-retrofit REAL-USER: **1** (the Apr-14 curl/8.5.0 session)
+- Reclassified to IGNORED: 188 Mozilla/Linux events
+
+**Status of this evidence record**: UNCHANGED. The Apr-14 curl/8.5.0 call remains the only confirmed external-user signal. Evidence quality remains `weak`. The 188 reclassified events were self-traffic and do not compound this evidence.
+
+**Deploy gap**: sourceType changes (4907d26) still code_landed, not deployed. Mozilla proxy rule is the active gate until deployment.
