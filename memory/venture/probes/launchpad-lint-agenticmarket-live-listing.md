@@ -20,6 +20,17 @@
 - listing URL: `https://agenticmarket.dev/strange_loop/launchpad-lint`
 - install command: `npx agenticmarket install @strange_loop/launchpad-lint`
 
+## Design Gap Flagged (2026-04-17)
+
+The listing is passive — a builder must discover it, install it, use it, and produce a conversation before evidence is collectible. There is no active outreach path for this probe as currently defined. If Evan wants to generate the first external interaction, two options:
+
+1. **Post in an MCP builder community** (Discord, Reddit r/mcp, GitHub Discussions on anthropics/mcp) and mention the listing directly — drives active discovery.
+2. **Contact an AgenticMarket listing builder directly** and offer launchpad-lint as part of their preparation — combines both probes.
+
+Without one of these, the listing will sit passively.
+
+**Next Action (owner: Evan)**: pick one of the two options above and execute it. Record the first response as `external_conversation` evidence even if they decline — a real reaction is evidence.
+
 ## Interpretation
 
 - Operational health and listing visibility are necessary preconditions.

@@ -34,3 +34,14 @@ Offer a manual preflight review that returns:
 
 - direct outreach to builders with live or near-live MCP launches
 - use current launchpad and marketplace context as credibility and context, but do not rely on the marketplace listing alone for evidence
+
+## Next Action (as of 2026-04-17 — 6 days stalled)
+
+**Owner**: Evan (human — agent cannot initiate external contact)  
+**Action**: send one of the 10 existing outreach drafts in `memory/signals/outreach_drafts/`  
+**Priority targets** (have real contact paths and activity signals):
+- `github-achiya-automation-safari-mcp` — 27 stars, contact via GitHub
+- `github-barryw-immichmcp` — 7 stars, has personal blog at barrywalker.io + GitHub
+- `github-goldentrii-agentrecall` — 171 stars, most active, contact via GitHub
+
+**Send exactly one draft first.** Record the response (or non-response after 72h) as evidence before sending more.
