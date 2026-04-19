@@ -1,0 +1,26 @@
+{
+  "artifact": {
+    "content_hash": "sha256:8beb46718e68fa34ac626d09ba68a0cc3cac2e6696477fabfb1017864aaa5b0a",
+    "media_type": "text/markdown",
+    "uri": "file:///opt/workspace/projects/skillfoundry/skillfoundry-valuation-context/memory/venture/evidence/2026-04-14-preflight-first-real-user-call.md",
+    "version": "1776458829"
+  },
+  "binding": "binding",
+  "claim_id": "mcp-builders-need-publish-readiness-check",
+  "emitted_at": "2026-04-14T12:58:07Z",
+  "emitter": "L3:skillfoundry",
+  "evidence_type": "tool_invocation_log",
+  "id": "2026-04-14-preflight-first-real-user-call",
+  "instance_id": "skillfoundry-valuation-context",
+  "layer": "L3",
+  "object_type": "Evidence",
+  "observed_at": "2026-04-14T12:58:07Z",
+  "polarity": "supports",
+  "role_declared_at": "2026-04-14T12:58:07Z",
+  "roles": [
+    "Evidence"
+  ],
+  "sources": [],
+  "spec_version": "0.1.0",
+  "tier": "external_conversation"
+}

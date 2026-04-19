@@ -1,0 +1,26 @@
+{
+  "artifact": {
+    "content_hash": "sha256:8def403a79be4f1bc6c4ebbc3c72d18e111e2a1db8e6db4274a01b955e28aa21",
+    "media_type": "text/markdown",
+    "uri": "file:///opt/workspace/projects/skillfoundry/skillfoundry-valuation-context/memory/venture/evidence/2026-04-11-launch-compliance-intelligence-selection-basis.md",
+    "version": "1775873750"
+  },
+  "binding": "binding",
+  "claim_id": "launch-compliance-intelligence-first-paid-review",
+  "emitted_at": "2026-04-11T02:10:00Z",
+  "emitter": "L3:skillfoundry",
+  "evidence_type": "research_synthesis_and_ecosystem_policy_scan",
+  "id": "2026-04-11-launch-compliance-intelligence-selection-basis",
+  "instance_id": "skillfoundry-valuation-context",
+  "layer": "L3",
+  "object_type": "Evidence",
+  "observed_at": "2026-04-11T02:10:00Z",
+  "polarity": "neutral",
+  "role_declared_at": "2026-04-11T02:10:00Z",
+  "roles": [
+    "Evidence"
+  ],
+  "sources": [],
+  "spec_version": "0.1.0",
+  "tier": "internal_operational"
+}

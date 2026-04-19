@@ -1,0 +1,35 @@
+{
+  "artifact": {
+    "content_hash": "sha256:cb6ca7969e1dd114d04370b849b15fe587ba48b27684fafa7f099e26524aec32",
+    "media_type": "text/markdown",
+    "uri": "file:///opt/workspace/projects/skillfoundry/skillfoundry-valuation-context/memory/venture/assumptions/launchpad-lint-first-external-commitment.md",
+    "version": "1775871690"
+  },
+  "binding": "binding",
+  "emitted_at": "2026-04-11T01:39:34Z",
+  "emitter": "L3:skillfoundry",
+  "exposure": {
+    "blast_radius": "local",
+    "capital_at_risk": 0,
+    "correlation_tags": [
+      "skillfoundry-valuation"
+    ],
+    "reversibility": "reversible",
+    "time_to_realization": "P14D"
+  },
+  "falsification_criteria": [
+    "if no external commitment or transaction is recorded during the first launch cycle after live AgenticMarket exposure and direct builder outreach, or if first users complete the flow but still report heavy rewriting, treat the assumption as falsified or in need of a major redesign"
+  ],
+  "id": "launchpad-lint-first-external-commitment",
+  "instance_id": "skillfoundry-valuation-context",
+  "layer": "L3",
+  "object_type": "Claim",
+  "role_declared_at": "2026-04-11T01:39:34Z",
+  "roles": [
+    "Claim"
+  ],
+  "sources": [],
+  "spec_version": "0.1.0",
+  "statement": "builders preparing an MCP launch have enough uncertainty around readiness, listing shape, and launch-package quality that they will pay for a narrow audit-plus-draft workflow",
+  "thresholds": {}
+}

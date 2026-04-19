@@ -1,0 +1,40 @@
+{
+  "binding": "binding",
+  "candidate_claims": [
+    "launch-compliance-intelligence-first-paid-review"
+  ],
+  "chosen_claim_id": "launch-compliance-intelligence-first-paid-review",
+  "cited_evidence": [
+    "2026-04-11-launch-compliance-intelligence-selection-basis"
+  ],
+  "emitted_at": "2026-04-11T02:10:00Z",
+  "emitter": "L3:skillfoundry",
+  "exposure": {
+    "blast_radius": "local",
+    "capital_at_risk": 0,
+    "correlation_tags": [
+      "skillfoundry-valuation"
+    ],
+    "reversibility": "reversible",
+    "time_to_realization": "P14D"
+  },
+  "id": "2026-04-11-continue-launch-compliance-intelligence-into-live-stage1",
+  "instance_id": "skillfoundry-valuation-context",
+  "kind": "continue",
+  "layer": "L3",
+  "object_type": "Decision",
+  "policies_in_force": [
+    {
+      "class": "operational",
+      "policy_id": "skillfoundry.evidence_quality_note",
+      "version": "1"
+    }
+  ],
+  "rationale": "The researcher-side scouting and shortlist make this the strongest next non-launchpad lane because it is near an existing live surface, solves a real internal scaling problem, and can be tested with a cheap manual probe. That is enough to activate the lane, but not to validate it.",
+  "role_declared_at": "2026-04-11T02:10:00Z",
+  "roles": [
+    "Decision"
+  ],
+  "sources": [],
+  "spec_version": "0.1.0"
+}

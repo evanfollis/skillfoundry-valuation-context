@@ -1,0 +1,35 @@
+{
+  "artifact": {
+    "content_hash": "sha256:6120fb96e3854448f944bbbe80f6807f96f761ca233d736eedc448f65e10473e",
+    "media_type": "text/markdown",
+    "uri": "file:///opt/workspace/projects/skillfoundry/skillfoundry-valuation-context/memory/venture/assumptions/launch-compliance-intelligence-first-paid-review.md",
+    "version": "1775873750"
+  },
+  "binding": "binding",
+  "emitted_at": "2026-04-11T02:10:00Z",
+  "emitter": "L3:skillfoundry",
+  "exposure": {
+    "blast_radius": "local",
+    "capital_at_risk": 0,
+    "correlation_tags": [
+      "skillfoundry-valuation"
+    ],
+    "reversibility": "reversible",
+    "time_to_realization": "P14D"
+  },
+  "falsification_criteria": [
+    "if repeated builder conversations collapse this into generic launch copy help or show no willingness to engage with a narrow compliance/readiness review, the assumption is wrong or too weak to prioritize"
+  ],
+  "id": "launch-compliance-intelligence-first-paid-review",
+  "instance_id": "skillfoundry-valuation-context",
+  "layer": "L3",
+  "object_type": "Claim",
+  "role_declared_at": "2026-04-11T02:10:00Z",
+  "roles": [
+    "Claim"
+  ],
+  "sources": [],
+  "spec_version": "0.1.0",
+  "statement": "builders need more than listing copy help; they need a concrete read on whether a server package is policy-safe, trust-legible, and submission-ready",
+  "thresholds": {}
+}

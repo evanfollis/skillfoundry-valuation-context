@@ -1,0 +1,26 @@
+{
+  "artifact": {
+    "content_hash": "sha256:db242b8878bf756cf6e02f695035ee4079687e196e0623614d002a883fb25b2b",
+    "media_type": "text/markdown",
+    "uri": "file:///opt/workspace/projects/skillfoundry/skillfoundry-valuation-context/memory/venture/evidence/2026-04-11-launchpad-lint-agenticmarket-live-listing.md",
+    "version": "1775871690"
+  },
+  "binding": "binding",
+  "claim_id": "launchpad-lint-first-external-commitment",
+  "emitted_at": "2026-04-11T01:39:34Z",
+  "emitter": "L3:skillfoundry",
+  "evidence_type": "public_listing_and_runtime_verification",
+  "id": "2026-04-11-launchpad-lint-agenticmarket-live-listing",
+  "instance_id": "skillfoundry-valuation-context",
+  "layer": "L3",
+  "object_type": "Evidence",
+  "observed_at": "2026-04-11T01:39:34Z",
+  "polarity": "neutral",
+  "role_declared_at": "2026-04-11T01:39:34Z",
+  "roles": [
+    "Evidence"
+  ],
+  "sources": [],
+  "spec_version": "0.1.0",
+  "tier": "internal_operational"
+}

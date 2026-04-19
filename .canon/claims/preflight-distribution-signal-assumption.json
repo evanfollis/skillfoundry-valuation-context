@@ -1,0 +1,35 @@
+{
+  "artifact": {
+    "content_hash": "sha256:7a3f893fb9ce98a9d5ddfb500de51a4c0ca0662213c387185c6c761f695f4ccf",
+    "media_type": "text/markdown",
+    "uri": "file:///opt/workspace/projects/skillfoundry/skillfoundry-valuation-context/memory/venture/assumptions/preflight-distribution-signal-assumption.md",
+    "version": "1776417357"
+  },
+  "binding": "binding",
+  "emitted_at": "2026-04-17T09:11:00Z",
+  "emitter": "L3:skillfoundry",
+  "exposure": {
+    "blast_radius": "local",
+    "capital_at_risk": 0,
+    "correlation_tags": [
+      "skillfoundry-valuation"
+    ],
+    "reversibility": "reversible",
+    "time_to_realization": "P14D"
+  },
+  "falsification_criteria": [
+    "if no qualifying tools/call from a non-crawler UA is observed within 14 days of Registry publish, distribution is the bottleneck, not product quality"
+  ],
+  "id": "preflight-distribution-signal-assumption",
+  "instance_id": "skillfoundry-valuation-context",
+  "layer": "L3",
+  "object_type": "Claim",
+  "role_declared_at": "2026-04-17T09:11:00Z",
+  "roles": [
+    "Claim"
+  ],
+  "sources": [],
+  "spec_version": "0.1.0",
+  "statement": "MCP server builders have enough uncertainty about publish-readiness (registry schema, Smithery listing shape, npm metadata) that they will voluntarily invoke a free automated check",
+  "thresholds": {}
+}

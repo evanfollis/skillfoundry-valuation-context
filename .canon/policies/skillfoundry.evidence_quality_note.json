@@ -1,0 +1,57 @@
+{
+  "amendment_authority": [
+    "L3:skillfoundry",
+    "human:evan"
+  ],
+  "binding": "binding",
+  "class": "operational",
+  "effective_from": "2026-04-19T04:28:58.543904Z",
+  "effective_until": null,
+  "emitted_at": "2026-04-19T04:28:58.543904Z",
+  "emitter": "L3:skillfoundry",
+  "field_path": "evidence.quality_label",
+  "id": "skillfoundry.evidence_quality_note",
+  "issuer": "L3:skillfoundry",
+  "layer": "L3",
+  "object_type": "Policy",
+  "provenance": [
+    {
+      "effective_from": "2026-04-19T04:28:58.543904Z",
+      "version": "1"
+    }
+  ],
+  "ratification_rule": {
+    "kind": "principal_signoff",
+    "signatories": [
+      "human:evan"
+    ]
+  },
+  "role_declared_at": "2026-04-19T04:28:58.543904Z",
+  "roles": [
+    "Policy"
+  ],
+  "rollback_rule": {
+    "precedence": [
+      "canon_gains_quality_field"
+    ],
+    "rules": [
+      {
+        "condition": "canon.spec_version advances to include an Evidence.quality field, at which point this Policy's note is obsolete",
+        "id": "canon_gains_quality_field"
+      }
+    ]
+  },
+  "scope": "L3:skillfoundry-valuation-context",
+  "sources": [],
+  "spec_version": "0.1.0",
+  "value": {
+    "location": "artifact body of each Evidence envelope",
+    "note": "Skillfoundry markdown Evidence records carry an `evidence_quality` label that canon does not model directly (canon.Evidence has `tier` for bindingness, not for quality). The label is preserved in the ArtifactPointer-referenced markdown and can be extracted by re-parsing the artifact if needed. Promoting quality to a first-class canon field requires a canon spec bump (v0.2.0).",
+    "values": [
+      "weak",
+      "moderate",
+      "strong"
+    ]
+  },
+  "version": "1"
+}
