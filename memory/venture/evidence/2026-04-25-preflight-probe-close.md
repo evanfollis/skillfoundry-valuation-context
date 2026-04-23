@@ -7,8 +7,9 @@
 - `evidence_quality`: `weak`
 - `source_type`: `probe_close_synthesis`
 - `source_identity`: `skillfoundry session (routed from executive handoff 2026-04-23T15:10Z)`
-- `observed_at`: `2026-04-25T00:00:00Z`
-- `summary`: Preflight distribution probe closes at the end of its 14-day window with a single weak real-user signal and no deployment of the agentic inbound surface scaffolded mid-window. The probe does not answer the core question about builder pain; it answers only that distribution produces incidental invocations.
+- `observed_at`: `2026-04-23T17:20:00Z`
+- `window_close_date`: `2026-04-25` (probe's scheduled window end; this note was synthesized 2 days ahead at the executive's request so canon carries the close before the window expires)
+- `summary`: Preflight distribution probe is being closed at the end of its 14-day window (2026-04-25) with a single weak real-user signal and no deployment of the agentic inbound surface scaffolded mid-window. The probe does not answer the core question about builder pain; it answers only that distribution produces incidental invocations. Note on dating: filename uses the probe's window-close date (handoff convention) but `observed_at` reflects when this synthesis was actually written (2026-04-23) — do not read the envelope as evidence that materialized on 2026-04-25.
 - `raw_pointer`: `memory/venture/evidence/2026-04-14-preflight-first-real-user-call.md`
 - `supports`: `weakens_assumption`
 - `confidence`: `moderate` — the operational facts are well-attested (watcher logs, commit history, deployment state); the interpretation (weak signal, not a continue) is a judgment call but one the falsification rule calls for.

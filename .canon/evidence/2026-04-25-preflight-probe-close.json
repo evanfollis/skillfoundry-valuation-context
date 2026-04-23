@@ -1,22 +1,22 @@
 {
   "artifact": {
-    "content_hash": "sha256:5249e6f38ed8e2beb5d7249421897cb936b618a837cecf06308f5cb218e5f3e1",
+    "content_hash": "sha256:c60e54a2d80377791edcf706d27aedad8ef6557be4c53758c81063b38bcff594",
     "media_type": "text/markdown",
     "uri": "file:///opt/workspace/projects/skillfoundry/skillfoundry-valuation-context/memory/venture/evidence/2026-04-25-preflight-probe-close.md",
-    "version": "1776962818"
+    "version": "1776963285"
   },
   "binding": "binding",
   "claim_id": "preflight-distribution-signal-assumption",
-  "emitted_at": "2026-04-25T00:00:00Z",
+  "emitted_at": "2026-04-23T17:20:00Z",
   "emitter": "L3:skillfoundry",
   "evidence_type": "probe_close_synthesis",
   "id": "2026-04-25-preflight-probe-close",
   "instance_id": "skillfoundry-valuation-context",
   "layer": "L3",
   "object_type": "Evidence",
-  "observed_at": "2026-04-25T00:00:00Z",
+  "observed_at": "2026-04-23T17:20:00Z",
   "polarity": "neutral",
-  "role_declared_at": "2026-04-25T00:00:00Z",
+  "role_declared_at": "2026-04-23T17:20:00Z",
   "roles": [
     "Evidence"
   ],
