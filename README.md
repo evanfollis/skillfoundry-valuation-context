@@ -1,3 +1,10 @@
+---
+name: Valuation Context README
+description: Repo overview — canonical context lineage for the Skillfoundry valuation agent
+type: reference
+updated: 2026-04-23
+---
+
 # Valuation Context
 
 This repository is the canonical context lineage for one Skillfoundry agent.

@@ -1,3 +1,10 @@
+---
+name: Mission
+description: The valuation agent's mission — compare expected value against admissible evidence to improve Skillfoundry's commercial prioritization model
+type: directive
+updated: 2026-04-23
+---
+
 # Mission
 
 Compare expected value against admissible evidence and improve Skillfoundry’s

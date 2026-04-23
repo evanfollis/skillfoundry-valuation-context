@@ -1,3 +1,10 @@
+---
+name: CURRENT_STATE
+description: Front door for skillfoundry-valuation-context — live venture-loop state and in-progress work
+type: front-door
+updated: 2026-04-23
+---
+
 # CURRENT_STATE — skillfoundry-valuation-context
 
 > Maintained by tick sessions and reflection passes.
@@ -50,6 +57,20 @@
 
 ## Recent decisions
 
+- **2026-04-23 — M1+M2+M3 retrofit (context-repo pattern pass 2)**: added frontmatter
+  to 6 core files (CURRENT_STATE, README, CLAUDE.md new, memory/mission,
+  memory/profiles/valuation, memory/venture/README), copied `scripts/build-index.sh`
+  from context-repository, generated `index.md` (6 Indexed + 24 Unindexed). 24
+  artifact-class files (evidence/probe/assumption/decision/activation records) left
+  Unindexed pending per-file frontmatter by domain-aware sessions. Ship authorized
+  by principal via context-repo pass-2 handoff; skillfoundry tick declined due to
+  cross-repo boundary, so context-repo session shipped directly.
+  - **Known gap**: reflections update this file uncommitted until M5 enforcement
+    ADR ships — this is spec §Known limitations L1 in practice, not a retrofit failure.
+  - **Flagged for domain-aware session**: activation files say status=`scaffolded`
+    (last updated 2026-04-17) but harness CURRENT_STATE reports preflight landing
+    page, MCP endpoint, and sourceType are all live (per 2026-04-18 deploy). State
+    discrepancy to reconcile; retrofit did not touch activation content.
 - **2026-04-19T04:31Z** — Canon adapter v1 backfill. 13 envelopes in `.canon/`. NOT pushed — integrity fix required before push. `/review` was not called; must run before treating canon store as settled. (URGENT handoff filed 2026-04-20, unread 84h+.)
 - **2026-04-17T20:38Z** — `latencyMs` is server processing time, not network round-trip. ADR-0019 latency-floor discrimination corrected. Mozilla/Linux proxy rule added to IGNORE_RE as interim gate.
 - **2026-04-17T20:38Z** — Agentic inbound design: principal outreach was a design misread; agent-operated inbound surfaces (landing pages, blogs, personas) are in scope without FINRA constraint.

@@ -1,3 +1,10 @@
+---
+name: Stage 1 Venture Loop
+description: Canonical home of the live Stage 1 commercial controller — assumptions, probes, evidence, decisions
+type: reference
+updated: 2026-04-23
+---
+
 # Stage 1 Venture Loop
 
 This directory is the canonical home of the live Stage 1 commercial controller for

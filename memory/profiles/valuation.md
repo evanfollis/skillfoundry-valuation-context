@@ -1,3 +1,10 @@
+---
+name: Valuation agent profile
+description: Persona, role definition, and profile stack for the valuation agent
+type: directive
+updated: 2026-04-23
+---
+
 # Agent Profile: Valuation
 
 - agent_id: valuation
