@@ -11,7 +11,7 @@
 - `window_close_date`: `2026-04-25` (probe's scheduled window end; this note was synthesized 2 days ahead at the executive's request so canon carries the close before the window expires)
 - `summary`: Preflight distribution probe is being closed at the end of its 14-day window (2026-04-25) with a single weak real-user signal and no deployment of the agentic inbound surface scaffolded mid-window. The probe does not answer the core question about builder pain; it answers only that distribution produces incidental invocations. Note on dating: filename uses the probe's window-close date (handoff convention) but `observed_at` reflects when this synthesis was actually written (2026-04-23) — do not read the envelope as evidence that materialized on 2026-04-25.
 - `raw_pointer`: `memory/venture/evidence/2026-04-14-preflight-first-real-user-call.md`
-- `supports`: `weakens_assumption`
+- `supports`: `contradicts_assumption`
 - `confidence`: `moderate` — the operational facts are well-attested (watcher logs, commit history, deployment state); the interpretation (weak signal, not a continue) is a judgment call but one the falsification rule calls for.
 
 ## What happened across the probe window (2026-04-11 → 2026-04-25)
@@ -35,7 +35,9 @@ The falsification rule named "14 days, zero qualifying `tools/call` → distribu
 
 ## Honest verdict
 
-The probe closes as **weakens_assumption**, not falsifies. The literal falsification threshold was not hit, but the evidence does not support a continue. Record the probe as an activation-met-but-inconclusive close — distribution produced one invocation, and that invocation did not answer the commercial question.
+The probe closes with **contradicts** polarity in canon (the canonical enum value). The intent of the framing is "weakens, not falsifies": the literal falsification threshold was not hit, but the evidence does not support a continue. Record the probe as an activation-met-but-inconclusive close — distribution produced one invocation, and that invocation did not answer the commercial question.
+
+Note on polarity mapping: the canon `supports` enum (v0.1.0) does not carry a `weakens_assumption` value; it carries `contradicts_assumption` as the closest negative-direction term. The schema gap (weakens vs contradicts strength distinction) is being routed to the context-repo session for spec pressure-test; principal decision on 2026-04-23 was to use `contradicts_assumption` in the source so the envelope emits rather than quarantining in the friction log.
 
 ## What the probe did not show
 

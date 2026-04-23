@@ -1,9 +1,9 @@
 {
   "artifact": {
-    "content_hash": "sha256:c60e54a2d80377791edcf706d27aedad8ef6557be4c53758c81063b38bcff594",
+    "content_hash": "sha256:e6e51073fcb5f6a40958e03bf8aa4dde01bf90b8678f37ca7e68596f73831419",
     "media_type": "text/markdown",
     "uri": "file:///opt/workspace/projects/skillfoundry/skillfoundry-valuation-context/memory/venture/evidence/2026-04-25-preflight-probe-close.md",
-    "version": "1776963285"
+    "version": "1776967353"
   },
   "binding": "binding",
   "claim_id": "preflight-distribution-signal-assumption",
@@ -15,7 +15,7 @@
   "layer": "L3",
   "object_type": "Evidence",
   "observed_at": "2026-04-23T17:20:00Z",
-  "polarity": "neutral",
+  "polarity": "contradicts",
   "role_declared_at": "2026-04-23T17:20:00Z",
   "roles": [
     "Evidence"
