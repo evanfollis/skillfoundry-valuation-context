@@ -8,10 +8,10 @@
   "layer": "L3",
   "methodology_log": {
     "artifact": {
-      "content_hash": "sha256:85a6231bcefcb71a03d93816dc83efee337f55e90607868504e7fadcabc7d3bf",
+      "content_hash": "sha256:bd25baec2427ae619cc2b5f1e8b385783225195c5fea695c6e990eb304e9c37f",
       "media_type": "text/markdown",
       "uri": "file:///opt/workspace/projects/skillfoundry/skillfoundry-valuation-context/memory/venture/probes/launch-compliance-intelligence-manual-offer.md",
-      "version": "1776388165"
+      "version": "1776962715"
     },
     "summary": "manual_offer"
   },

@@ -1,7 +1,7 @@
 # Evidence: preflight first real-user tool invocation
 
 - `evidence_id`: `2026-04-14-preflight-first-real-user-call`
-- `assumption_id`: `mcp-builders-need-publish-readiness-check`
+- `assumption_id`: `preflight-distribution-signal-assumption`
 - `probe_id`: `preflight-distribution-signal`
 - `evidence_class`: `external_conversation`
 - `evidence_quality`: `weak` — single invocation, no pain articulated, no follow-up, verdict was `checks_pass` (tool worked but no friction observed)
@@ -33,14 +33,13 @@ Raw log entry from preflight-watcher:
 }
 ```
 
-## ID discrepancy — flag for next session
+## ID cutover — resolved 2026-04-17 (5c3a5ff)
 
-The watcher log emits `assumptionId: mcp-builders-need-publish-readiness-check` and `probeId: preflight-publish-readiness`. Neither matches a formal file in this venture directory:
+The raw watcher log above emits the pre-cutover slugs `assumptionId: mcp-builders-need-publish-readiness-check` and `probeId: preflight-publish-readiness`. Neither matched a formal venture file at the time of capture.
 
-- No `memory/venture/assumptions/mcp-builders-need-publish-readiness-check.md` exists
-- The probe file is `preflight-distribution-signal.md`, not `preflight-publish-readiness`
+Commit `5c3a5ff` (2026-04-17T09:18Z) registered the formal assumption file `memory/venture/assumptions/preflight-distribution-signal-assumption.md` and recorded the cutover boundary on the probe file (see `memory/venture/probes/preflight-distribution-signal.md` §"Telemetry slug cutover"). This evidence file's `assumption_id` has since been re-linked to `preflight-distribution-signal-assumption` so canon cross-joins resolve.
 
-This evidence file uses the log's `assumption_id` verbatim (preserving provenance) and maps `probe_id` to the existing probe file slug (`preflight-distribution-signal`). The missing assumption file should be created or the watcher config updated so IDs align. Until then, cross-joins on `assumption_id` will miss this evidence.
+The raw log block is preserved verbatim above as pre-cutover provenance; the header metadata uses post-cutover slugs so downstream canon consumers see a valid reference.
 
 ## What this does NOT show
 

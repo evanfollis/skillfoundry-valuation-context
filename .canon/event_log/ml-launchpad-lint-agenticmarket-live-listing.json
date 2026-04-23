@@ -8,10 +8,10 @@
   "layer": "L3",
   "methodology_log": {
     "artifact": {
-      "content_hash": "sha256:dc6283e9999fb2ffcbf51946a7a4a579be59517739bcb3efa8c5e08eae8d66f6",
+      "content_hash": "sha256:19024ef00df5375391240ea233544f4be0423e21a4ed1fbd4f153e7e475fc2fd",
       "media_type": "text/markdown",
       "uri": "file:///opt/workspace/projects/skillfoundry/skillfoundry-valuation-context/memory/venture/probes/launchpad-lint-agenticmarket-live-listing.md",
-      "version": "1776388173"
+      "version": "1776962711"
     },
     "summary": "remote_mcp_server"
   },

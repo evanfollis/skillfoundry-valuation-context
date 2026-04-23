@@ -1,12 +1,12 @@
 {
   "artifact": {
-    "content_hash": "sha256:8beb46718e68fa34ac626d09ba68a0cc3cac2e6696477fabfb1017864aaa5b0a",
+    "content_hash": "sha256:7bdcd1d44ce4ce728d24536cbc3057d46a4ac7d34f22e876cd4a8c9cb81bf63a",
     "media_type": "text/markdown",
     "uri": "file:///opt/workspace/projects/skillfoundry/skillfoundry-valuation-context/memory/venture/evidence/2026-04-14-preflight-first-real-user-call.md",
-    "version": "1776458829"
+    "version": "1776962878"
   },
   "binding": "binding",
-  "claim_id": "mcp-builders-need-publish-readiness-check",
+  "claim_id": "preflight-distribution-signal-assumption",
   "emitted_at": "2026-04-14T12:58:07Z",
   "emitter": "L3:skillfoundry",
   "evidence_type": "tool_invocation_log",
