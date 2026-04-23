@@ -1,9 +1,9 @@
 # Activation: Launchpad Lint — agentic inbound funnel
 
 - `probe_id`: `launchpad-lint-agenticmarket-live-listing`
-- `status`: `scaffolded` — content spec written, deployment pending credential provisioning
+- `status`: `partial` — AgenticMarket listing live (passive inbound); landing page and telemetry not yet deployed (Render deploy on separate track, fly CLI not installed on server)
 - `created_at`: `2026-04-17T20:38Z`
-- `updated_at`: `2026-04-17T20:38Z`
+- `updated_at`: `2026-04-23T20:33Z`
 
 ## Persona
 
@@ -66,6 +66,7 @@ Status: outlines written above. Full drafts pending blog hosting setup.
 
 ## CURRENT_STATE update
 
-- **Before this tick**: stalled — agenticmarket listing live but no active conversion channel
-- **After this tick**: scaffolded — persona defined, landing page spec written, blog content queue defined
-- **Next action**: Evan provisions fly/render creds → verify landing page → add telemetry → blog + video production
+- **2026-04-17**: stalled — agenticmarket listing live but no active conversion channel
+- **2026-04-18**: blog post live; landing page spec written; Render deploy blocked (fly CLI not installed on Hetzner server)
+- **2026-04-23 (this tick)**: status reconciled to `partial`. AgenticMarket listing is live passive inbound. Blog post live at skillfoundry-blog.pages.dev. Landing page + telemetry deferred until Render/fly credentials available.
+- **Remaining blocker**: Render account credentials or fly.io auth token needed to deploy landing page. No local server-side deploy path without these.

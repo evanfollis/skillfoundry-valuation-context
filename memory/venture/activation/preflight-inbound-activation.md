@@ -1,9 +1,9 @@
 # Activation: Preflight — agentic inbound funnel
 
 - `probe_id`: `preflight-distribution-signal`
-- `status`: `scaffolded` — content artifacts written, deployment pending credential provisioning
+- `status`: `deployed` — Worker live at https://preflight.skillfoundry.workers.dev/ with landing page + sourceType + MCP endpoint all active
 - `created_at`: `2026-04-17T20:38Z`
-- `updated_at`: `2026-04-17T20:38Z`
+- `updated_at`: `2026-04-23T20:33Z`
 
 ## Persona
 
@@ -72,6 +72,7 @@ Status: outlines written above. Full drafts pending blog publishing infrastructu
 
 ## CURRENT_STATE update
 
-- **Before this tick**: stalled — activation metric met but no inbound funnel
-- **After this tick**: scaffolded — persona defined, content spec written, watcher discrimination fixed, deployment gap enumerated
-- **Next action**: Evan provisions wrangler creds → deploy → add landing page route → blog + video production
+- **2026-04-17**: stalled — activation metric met but no inbound funnel
+- **2026-04-18**: deployed — Worker live, landing page + MCP endpoint + sourceType all live; watcher IGNORE_RE active
+- **2026-04-23 (this tick)**: status reconciled to `deployed`. 1 confirmed real user (Apr 14 curl/8.5.0). Blog post live. External URL verified: https://preflight.skillfoundry.workers.dev/ returns 200.
+- **Next action**: drive organic search traffic; monitor telemetry for external_conversation evidence before probe window closes 2026-04-25

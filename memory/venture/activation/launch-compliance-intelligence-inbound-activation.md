@@ -1,9 +1,9 @@
 # Activation: Launch Compliance Intelligence — agentic inbound funnel
 
 - `probe_id`: `launch-compliance-intelligence-manual-offer`
-- `status`: `blocked` — no product infrastructure; content spec written but requires new hosting + manual review service design
+- `status`: `partial` — landing page live at https://lci.pages.dev/ with $99 pricing; Tally form placeholder ("Intake form loading shortly"); intake form blocked on Evan creating form at tally.so
 - `created_at`: `2026-04-17T20:38Z`
-- `updated_at`: `2026-04-17T20:38Z`
+- `updated_at`: `2026-04-23T20:33Z`
 
 ## Why this probe is different
 
@@ -69,6 +69,7 @@ No deployed endpoint exists. Options in scope:
 
 ## CURRENT_STATE update
 
-- **Before this tick**: stalled — 10 drafts ready, none sent, probe design required principal outreach
-- **After this tick**: scaffolded — persona defined, landing page spec written, intake-form approach specified, price prompt raised
-- **Blocking item**: Evan must choose intake form tool and price signal. No code needed to ship this, but needs a decision and a 30-minute setup.
+- **2026-04-17**: stalled — 10 drafts ready, none sent, probe design required principal outreach
+- **2026-04-18**: landing page DEPLOYED at lci.pages.dev — $99 pricing, Tally placeholder, blog post live
+- **2026-04-23 (this tick)**: status reconciled to `partial`. Landing page live and verified. Intake funnel blocked on Tally form.
+- **Remaining blocker**: Evan must create Tally form at tally.so → return embed code → agent swaps `<!-- TALLY_EMBED -->` placeholder and runs pages deploy. See `general-skillfoundry-tally-form-needed-2026-04-18.md` escalation.
