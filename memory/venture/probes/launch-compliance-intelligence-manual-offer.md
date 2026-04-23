@@ -12,6 +12,7 @@
 - `falsification_rule`: `if early external conversations consistently collapse into generic copy help, free checklist requests, or indifference to the review framing, do not continue the lane as currently framed`
 - `started_at`: `2026-04-11T02:10:00Z`
 - `ended_at`: `(open)`
+- `stale_close_date`: `2026-04-24`
 - `status`: `active`
 - `owner`: `skillfoundry`
 

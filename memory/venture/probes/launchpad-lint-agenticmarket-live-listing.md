@@ -12,6 +12,7 @@
 - `falsification_rule`: `if the lane remains live through the first launch cycle without external commitment, or if users complete the flow but still require heavy rewriting, do not mark the lane as a commercial continue`
 - `started_at`: `2026-04-10T20:55:17Z`
 - `ended_at`: `(open)`
+- `stale_close_date`: `2026-04-24`
 - `status`: `active`
 - `owner`: `skillfoundry`
 
