@@ -2,7 +2,7 @@
 name: CURRENT_STATE
 description: Front door for skillfoundry-valuation-context — live venture-loop state and in-progress work
 type: front-door
-updated: 2026-04-23
+updated: 2026-05-21
 ---
 
 # CURRENT_STATE — skillfoundry-valuation-context
@@ -10,79 +10,68 @@ updated: 2026-04-23
 > Maintained by tick sessions and reflection passes.
 > **Accuracy over completeness.** Short and honest beats long and stale.
 
-**Last updated**: 2026-04-23T14-20-22Z (reflection pass)
+**Last updated**: 2026-05-21 (portfolio reframe per ADR-0033)
 
 ---
 
+## Portfolio framing note (ADR-0033, 2026-05-21)
+
+Stage-1 controller objects (CriticalAssumption / Probe / Evidence / Decision) and L1 canon evidence classes (`internal_operational`, `external_conversation`, `external_commitment`, `external_transaction`) remain authoritative for **per-probe** validation. They are **not** the dominant frame for declaring passive-income readiness on a sleeve.
+
+A probe with a clean Stage-1 `external_commitment` can still fail the portfolio test if the fulfillment loop depends on principal labour. Both layers report; neither subsumes the other. See `memory/mission.md` for the updated mission framing.
+
 ## Deployed / running state
 
-- **Launchpad Lint** (`@strange_loop/launchpad-lint`): live on AgenticMarket. Runtime operational.
-- **Preflight**: live on MCP Registry + Smithery + GitHub. Watcher active but NOT restarted — Mozilla/Linux reclassification fix is code_landed, not in-service.
+- **Launchpad Lint** (`@strange_loop/launchpad-lint`): live on AgenticMarket. Runtime operational. No HTML landing page (39B plaintext stub only). Render/Fly credentials blocked.
+- **Preflight**: Cloudflare Worker live at `preflight.skillfoundry.workers.dev`. Landing page **live** — verified 200, 4564B SEO HTML at 2026-04-24T12:25Z. MCP endpoint live. `sourceType` **deployed and working** — verified Apr 24: system-sourced test excluded from watcher log. Watcher IGNORE_RE fix still not in service (service not restarted). Watcher log silent since 2026-04-18T08:58Z — reason unknown (no traffic vs. service dark).
+- **Blog**: live at `skillfoundry-blog.pages.dev` — 3 posts published (verified 200 Apr 24).
+- **LCI**: landing page live at `lci.pages.dev` (verified 200 Apr 24). Tally form placeholder still showing.
 - No web UI or API surface managed by this context repo directly.
 
 ## What's in progress
 
-- **Preflight distribution probe**: Day 14 of 14 (window closes 2026-04-25). Activation metric met (Apr-14 curl/8.5.0). Evidence quality: weak. No new evidence in 14+ days. **35 hours remain; no deployment progress in 8 reflection windows. Probe will close inconclusive unless Evan acts tonight or tomorrow.**
-- **Agentic inbound scaffolded** (tick 20:38Z Apr 17): All 3 probes have persona definitions, landing page specs, blog queues, demo video scripts, telemetry channel specs in `memory/venture/activation/`. None deployed — credential gap documented in general escalation handoff.
-- **Preflight landing page** (code_landed): GET `/` route added to `products/preflight/src/index.ts`. Full SEO-optimized HTML. Awaiting wrangler deploy.
-- **`.canon/` backfill** (code_landed, NOT pushed): `dcfd7e4` created 13 machine-readable JSON envelopes in `.canon/` via skillfoundry-harness discovery adapter v1. Claim reference fixed 2026-04-23 (see Known broken section — RESOLVED). Adversarial review run 2026-04-23 — 3 substantive findings pending principal verdict. **Push held pending (a) principal verdict on review findings, (b) push authorization per workspace "ask before pushes" rule.**
+- **Preflight distribution probe**: Window closes **2026-04-25 (~9 hours)**. Close note written 2026-04-23 (`251adf4`). Canon envelope carries `contradicts_assumption` polarity (`39e5778`). Outcome: inconclusive — single weak signal (Apr-14 curl/8.5.0), no new qualified signals despite landing page going live mid-window.
+- **Agentic inbound**: Preflight `status=deployed` (landing page + sourceType + MCP endpoint all live). Launchpad Lint: `status=partial` (AgenticMarket live; HTML landing blocked by Render/Fly credentials). LCI: `status=partial` (landing live; Tally form blocked).
+- **`.canon/` adapter v1**: Pushed as of `f630675`. 3 adversarial review findings recorded — no explicit Accept/Fix/Defer verdict logged. Harness session owns the triage.
+- **Post-probe decision**: Close note is written; no Decision artifact yet for what comes next (continue/pivot/park the preflight lane).
 
 ## Known broken or degraded
 
-- ~~**[DEADLINE: TONIGHT ~midnight UTC] `stale_close_date` missing from 2 probes**~~ RESOLVED 2026-04-23 in commit `8a5f1ff` — both probes carry `stale_close_date: 2026-04-24` in backtick-metadata (files don't use YAML frontmatter).
-- **[DEADLINE: APR 25 — 35 HOURS] Probe close note unwritten**: `memory/venture/evidence/2026-04-25-preflight-probe-close.md` not created. 6 consecutive reflections proposed this. Non-credential-blocked.
-- ~~**`.canon/` has broken referential integrity**~~ RESOLVED 2026-04-23: evidence markdown `assumption_id` set to `preflight-distribution-signal-assumption`; migrate.py re-run; regenerated envelope now references an existing Claim (`preflight-distribution-signal-assumption.json`).
-- **`.canon/` adapter review landed findings** (2026-04-23): `adversarial-review.sh` succeeded (EROFS previously reported was no longer blocking). Three substantive findings recorded at `skillfoundry-harness/.reviews/dcfd7e4-4d6050d-discovery-adapter-2026-04-23.md`: (1) `parse_probe` emits `promotion` phase on any closed probe regardless of decision — silent semantic corruption; (2) unknown enums silently coerce to plausible defaults (`evidence_class→internal_operational`, `supports→neutral`, `decision_type→continue`); (3) adapter couples to filesystem mtime/layout rather than being a stable harness boundary. **Push of `dcfd7e4` is held pending principal verdict: address findings vs explicitly accept.**
-- **`.canon/` re-migration is non-idempotent**: policy file `effective_from`/`emitted_at` use `datetime.utcnow()` at emit, so every migrate.py run changes those timestamps even when input markdown is unchanged. Produces diff noise on every regeneration. Noted as a subclass of review finding #2.
-- **Preflight probe not in `.canon/event_log/`**: `preflight-distribution-signal.md` uses prose/bold format; adapter cannot parse it. No EventLogEntry exists.
-- **Watcher IGNORE_RE fix not yet in service**: `real-user-watcher.sh` updated but service not restarted. Needs `systemctl restart preflight-watcher` (sudo).
-- **sourceType not deployed**: 4907d26 changes still code_landed. All events still emit without sourceType field.
-- **latencyMs field is server processing time, NOT network round-trip.** ADR-0019 latency-floor discrimination is invalid. Use Mozilla/Linux IGNORE_RE as interim gate only.
-- **Evidence store empty for non-Preflight probes.** No external contact in 14+ days.
-- **CURRENT_STATE.md uncommitted**: Reflection passes update this file but cannot commit. **9th consecutive window.** If the next attended session runs `git checkout -- CURRENT_STATE.md`, this update is lost. **Commit it immediately on session start.**
-- **URGENT handoffs unread for 84+ hours**: Filed at 02:28Z 2026-04-20; structurally invisible — `general` session reads `supervisor/handoffs/INBOX/`, not `/opt/workspace/runtime/.handoff/URGENT-*`. Only visible when an attended session opens in this specific project CWD.
-- **No attended Evan sessions in 96+ hours**: Last human-driven project JSONL activity ~2026-04-19. Reflection mechanism functioning; consumption path absent for 8 windows.
+- **Watcher dark period**: `preflight-real-user.log` last entry 2026-04-18T08:58Z (6 days). Unclear if no traffic or service stopped. Verify with `journalctl -u preflight-watcher -n 20 --no-pager` before treating the probe window measurement as complete.
+- **`.canon/` adapter review findings unverdict'd**: 3 findings from `dcfd7e4-4d6050d-discovery-adapter-2026-04-23.md` — (1) `parse_probe` emits `promotion` on any closed probe; (2) unknown enums silently coerce; (3) filesystem mtime coupling. No explicit disposition logged.
+- **Watcher IGNORE_RE fix not in service**: `real-user-watcher.sh` updated but `systemctl restart preflight-watcher` not run (sudo needed). Lower urgency now that sourceType gate works for system traffic.
+- **latencyMs field is server processing time, NOT network round-trip.** ADR-0019 latency-floor discrimination invalid. Mozilla/Linux IGNORE_RE is interim gate only.
+- **Evidence store empty for non-Preflight probes.** No external contact in 28+ days for LCI/Launchpad.
+- **LCI Tally form**: placeholder visible; Evan must create form at tally.so and paste embed code into `skillfoundry-products/products/lci/index.html`.
 
 ## Blocked on (requires Evan)
 
-- ~~**[TONIGHT]** Apply `stale_close_date: 2026-04-24`~~ DONE 2026-04-23 (commit `8a5f1ff`).
-- **[APR 25]** Write probe close note: `memory/venture/evidence/2026-04-25-preflight-probe-close.md` — edit-only, not credential-blocked
-- Push `dcfd7e4` after fixing canon claim_id reference and running `/review` (see above)
-- `wrangler deploy` for preflight (landing page + sourceType) — **probe closes Apr 25; window closing**
-- `systemctl restart preflight-watcher` (watcher IGNORE_RE fix)
-- Launch Compliance Intelligence: intake form tool choice + price signal + hosting path
-- Blog hosting path (Medium account, Cloudflare Pages, or worker routes)
+- **[APR 25 — 9h]** Probe closes today. Outcome: inconclusive. Write Decision artifact for what comes next if desired.
+- **[VERIFY]** `journalctl -u preflight-watcher -n 20 --no-pager` — is watcher service running? Last log entry 6 days ago.
+- **[DECISION]** Adapter review findings: Accept/Fix/Defer verdict for 3 findings (harness session).
+- `systemctl restart preflight-watcher` (IGNORE_RE fix — watcher service restart)
+- LCI: Tally form creation (~5 min, tally.so, Evan account only)
+- Launchpad Lint landing page (Render or Fly.io credentials)
+- Blog posts: new posts (3 per probe outlined, 0 additional since initial 3)
 - Demo video tooling
-- Ratification signoff on `.canon/policies/skillfoundry.evidence_quality_note.json`
 
 ## Recent decisions
 
-- **2026-04-23 — M1+M2+M3 retrofit (context-repo pattern pass 2)**: added frontmatter
-  to 6 core files (CURRENT_STATE, README, CLAUDE.md new, memory/mission,
-  memory/profiles/valuation, memory/venture/README), copied `scripts/build-index.sh`
-  from context-repository, generated `index.md` (6 Indexed + 24 Unindexed). 24
-  artifact-class files (evidence/probe/assumption/decision/activation records) left
-  Unindexed pending per-file frontmatter by domain-aware sessions. Ship authorized
-  by principal via context-repo pass-2 handoff; skillfoundry tick declined due to
-  cross-repo boundary, so context-repo session shipped directly.
-  - **Known gap**: reflections update this file uncommitted until M5 enforcement
-    ADR ships — this is spec §Known limitations L1 in practice, not a retrofit failure.
-  - **Flagged for domain-aware session**: activation files say status=`scaffolded`
-    (last updated 2026-04-17) but harness CURRENT_STATE reports preflight landing
-    page, MCP endpoint, and sourceType are all live (per 2026-04-18 deploy). State
-    discrepancy to reconcile; retrofit did not touch activation content.
-- **2026-04-19T04:31Z** — Canon adapter v1 backfill. 13 envelopes in `.canon/`. NOT pushed — integrity fix required before push. `/review` was not called; must run before treating canon store as settled. (URGENT handoff filed 2026-04-20, unread 84h+.)
-- **2026-04-17T20:38Z** — `latencyMs` is server processing time, not network round-trip. ADR-0019 latency-floor discrimination corrected. Mozilla/Linux proxy rule added to IGNORE_RE as interim gate.
-- **2026-04-17T20:38Z** — Agentic inbound design: principal outreach was a design misread; agent-operated inbound surfaces (landing pages, blogs, personas) are in scope without FINRA constraint.
-- **2026-04-11 `tighten`** — Launchpad Lint kept live but not counted as commercial continue.
+- **2026-04-24T12:25Z — Live verification pass** (session 65447b9d): Preflight landing 200 (4564B), blog 200 (3 posts live), LCI 200 (Tally placeholder). sourceType operational in deployed worker. No commits.
+- **2026-04-23 ~20:38Z — Activation status reconciliation** (`f66da7e`): preflight=`deployed` (Worker 200 verified), launchpad-lint=`partial`, LCI=`partial`.
+- **2026-04-23 ~18:02Z — Polarity enum compliance** (`39e5778`): `weakens_assumption` not in canon v0.1.0; mapped to `contradicts_assumption` per principal verdict.
+- **2026-04-23 — M1+M2+M3 retrofit** (`f41ffd0`): frontmatter added to 6 core files; `index.md` generated (6 Indexed + 24 Unindexed).
+- **2026-04-23 — Preflight probe close note written** (`251adf4`): Outcome: single weak signal (curl/8.5.0), inbound surface never activated, activation-met-but-inconclusive.
+- **2026-04-23 — `.canon/` claim reference fixed** (`f630675`): evidence markdown `assumption_id` corrected; migrate.py re-run; adversarial review run and findings recorded.
+- **2026-04-19T04:31Z** — Canon adapter v1 backfill. 13 envelopes in `.canon/`.
+- **2026-04-17T20:38Z** — `latencyMs` is server processing time, not network round-trip. ADR-0019 latency-floor discrimination corrected.
 - **2026-04-11 `continue`** — Launch Compliance Intelligence advanced to live Stage 1.
-- **2026-04-14** — Preflight activation metric met. Evidence: `memory/venture/evidence/2026-04-14-preflight-first-real-user-call.md`.
+- **2026-04-14** — Preflight activation metric met (weak). Single curl/8.5.0 call.
 
 ## What the next agent must read first
 
-1. **Commit `CURRENT_STATE.md` first** — modified from reflection pass. Run `git add CURRENT_STATE.md && git commit -m "Record reflection state through Apr 23"` before any other work.
-2. **Read and act on URGENT handoffs** at `/opt/workspace/runtime/.handoff/URGENT-skillfoundry-valuation-*.md` — 2 filed, unread for 84+ hours.
-3. ~~**DEADLINE TONIGHT: Apply stale-close dates**~~ DONE 2026-04-23 (commit `8a5f1ff`).
-4. **Write probe close note NOW** — `memory/venture/evidence/2026-04-25-preflight-probe-close.md`. 35 hours to close. Non-credential-blocked. Do not defer again.
-5. **Do not push `dcfd7e4` as-is.** Fix `assumption_id` in evidence markdown → `preflight-distribution-signal-assumption`, re-run migrate.py, run `/review`, then push.
-6. **Probe closes Apr 25 — 35 hours remain.** With no deployment trajectory, the probe will close as "single weak signal, agentic inbound never activated." Write the close note deliberately now rather than letting the window expire silently.
+1. **Probe closes today (Apr 25)** — close note is written, outcome is inconclusive. If a post-probe Decision artifact is wanted, write it now.
+2. **Read the two general handoffs** at `/opt/workspace/runtime/.handoff/general-skillfoundry-agentic-inbound-root-scope-complete-2026-04-24T12-50Z.md` and `general-skillfoundry-valuation-evidence-supports-fix-complete-2026-04-24T12-35Z.md` — they contain verified live deployment state and remaining principal blockers.
+3. **Watcher service check** — `journalctl -u preflight-watcher -n 20 --no-pager`. 6-day dark period.
+4. **Adapter review findings** — `skillfoundry-harness/.reviews/dcfd7e4-4d6050d-discovery-adapter-2026-04-23.md` — triage and produce a decision record.
+5. **CURRENT_STATE.md is modified by this reflection** — commit before any other work: `git add CURRENT_STATE.md && git commit`.
