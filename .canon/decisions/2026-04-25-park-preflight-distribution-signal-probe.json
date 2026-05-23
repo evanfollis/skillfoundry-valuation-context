@@ -1,0 +1,41 @@
+{
+  "binding": "binding",
+  "candidate_claims": [
+    "preflight-distribution-signal-assumption"
+  ],
+  "chosen_claim_id": "preflight-distribution-signal-assumption",
+  "cited_evidence": [
+    "2026-04-14-preflight-first-real-user-call",
+    "2026-04-25-preflight-probe-close"
+  ],
+  "emitted_at": "2026-05-23T02:30:00Z",
+  "emitter": "L3:skillfoundry",
+  "exposure": {
+    "blast_radius": "local",
+    "capital_at_risk": 0,
+    "correlation_tags": [
+      "skillfoundry-valuation"
+    ],
+    "reversibility": "reversible",
+    "time_to_realization": "P14D"
+  },
+  "id": "2026-04-25-park-preflight-distribution-signal-probe",
+  "instance_id": "skillfoundry-valuation-context",
+  "kind": "continue",
+  "layer": "L3",
+  "object_type": "Decision",
+  "policies_in_force": [
+    {
+      "class": "operational",
+      "policy_id": "skillfoundry.evidence_quality_note",
+      "version": "1"
+    }
+  ],
+  "rationale": "[skillfoundry-type=pause] (no rationale provided)",
+  "role_declared_at": "2026-05-23T02:30:00Z",
+  "roles": [
+    "Decision"
+  ],
+  "sources": [],
+  "spec_version": "0.1.0"
+}
