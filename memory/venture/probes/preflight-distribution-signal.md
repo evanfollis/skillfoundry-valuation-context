@@ -1,5 +1,24 @@
 # Probe: Preflight distribution yields real-user calls
 
+- `probe_id`: `preflight-distribution-signal`
+- `assumption_id`: `preflight-distribution-signal-assumption`
+- `probe_type`: `remote_mcp_server`
+- `artifact_class`: `mcp_diagnostic`
+- `target_evidence_class`: `external_conversation`
+- `minimum_evidence_quality`: `weak`
+- `success_rule`: `at least one tools/call invocation with a non-crawler user-agent from a distinct source within the 14-day window`
+- `falsification_rule`: `14 days, zero qualifying tools/call calls means distribution is the bottleneck — retitle, audit ranking, or pivot before another window`
+- `started_at`: `2026-04-11T20:55:17Z`
+- `ended_at`: `2026-04-25T00:00:00Z`
+- `status`: `closed`
+- `owner`: `skillfoundry`
+
+> **Canonical header added 2026-05-23** to make this probe parse-able by the
+> discovery adapter (`emit.py::parse_probe`). The prose body below is the
+> original probe definition and remains the authoritative narrative; the
+> bullet metadata above duplicates a subset of it in the format the adapter
+> requires. Post-probe Decision: `memory/venture/decisions/2026-04-25-park-preflight-distribution-signal-probe.md`.
+
 **Assumption under test:** Listing Preflight on MCP Registry + Smithery + GitHub produces organic inbound traffic from MCP server developers who actually run `check_publish_readiness` (not just crawlers/indexers).
 
 **Evidence class:** external_conversation (real user invocation = weak conversation signal)
