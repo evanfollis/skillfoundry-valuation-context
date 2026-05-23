@@ -2,7 +2,7 @@
 name: CURRENT_STATE
 description: Front door for skillfoundry-valuation-context — live venture-loop state and in-progress work
 type: front-door
-updated: 2026-05-23T02-23-45Z
+updated: 2026-05-23T14-24-26Z
 ---
 
 # CURRENT_STATE — skillfoundry-valuation-context
@@ -10,7 +10,7 @@ updated: 2026-05-23T02-23-45Z
 > Maintained by tick sessions and reflection passes.
 > **Accuracy over completeness.** Short and honest beats long and stale.
 
-**Last updated**: 2026-05-23T02:23:45Z (reflection pass — 2nd silent window; URGENT handoff written for 3 items at 6-cycle carry-forward)
+**Last updated**: 2026-05-23T14:24:26Z (reflection pass — URGENT items resolved; 1 migrate.failure unaddressed)
 
 ---
 
@@ -39,11 +39,11 @@ Reviewed 2026-05-23T02:26Z against `preflight-real-user.log` directly. Prior "no
   - Neither is a paid event. Both are passive `external_conversation`-class signals against the closed probe's assumption — useful for portfolio-layer "first passive paid event by channel" baseline (still zero), not useful for re-opening the Stage-1 probe (already closed).
 - **LCI**: no external contact. Tally form placeholder still showing (not functional).
 
-A post-probe Decision artifact has now been written at `memory/venture/decisions/decision-preflight-probe-close-2026-04-25.md` — verdict and rationale recorded; principal override welcome.
+Post-probe Decision artifact written at `memory/venture/decisions/2026-04-25-park-preflight-distribution-signal-probe.md` (`13d2d73`) — `decision_type=pause`, probe closed, surface continues under portfolio measurement. Principal override welcome. Post-window signals not yet in canon as Evidence envelopes (P3 in reflection 14:24Z).
 
 ## What's in progress
 
-- **Post-probe state**: The Preflight distribution probe closed ~2026-04-25 with inconclusive outcome. No follow-on Decision artifact written. Stage-1 ledger has an open loop.
+- **Post-probe state**: The Preflight distribution probe closed ~2026-04-25. Decision artifact written (`13d2d73`): `decision_type=pause` — keep surface, re-baseline under ADR-0033 portfolio-layer metrics. Stage-1 ledger closed.
 - **Agentic inbound**: Preflight `status=deployed` (landing page + sourceType + MCP endpoint all live). Launchpad Lint: `status=partial` (AgenticMarket live; HTML landing blocked by Render/Fly credentials). LCI: `status=partial` (landing live; Tally form blocked).
 - **`.canon/` adapter v1**: Pushed as of `f630675`. **3 adversarial review findings ARE verdict'd in harness — claim above was stale.** Finding 1 (`parse_probe` promotion bug) FIXED in `skillfoundry-harness/2f63ae5`; Finding 2 (silent enum coercion) FIXED in same commit (`AdapterParseError` now raised via `_resolve_enum`); Finding 3 (filesystem coupling) accepted-pending-scheduling ADR at `skillfoundry-harness/docs/adr-discovery-adapter-pure-parse-interface.md`. Post-review-triage commit was `664aba5` (2026-04-23).
 
@@ -58,16 +58,16 @@ A post-probe Decision artifact has now been written at `memory/venture/decisions
 
 ## Blocked on (requires Evan)
 
-- **[OPEN DECISION]** Write Decision artifact for Preflight probe close (continue/pivot/park). File: `memory/venture/decision-preflight-probe-close-2026-04-25.md`.
-- **[VERIFY]** `journalctl -u preflight-watcher -n 20 --no-pager` — is watcher service running?
-- **[DECISION]** Adapter review findings: Accept/Fix/Defer verdict for 3 findings (harness session).
-- `systemctl restart preflight-watcher` (IGNORE_RE fix — watcher service restart)
+- **[INVESTIGATE]** `discovery_adapter.migrate` emitted `events: {bad: 1}` at 02:30Z (`13d2d73` window). Source event doc failing schema parse unidentified. Run `--dry-run` in harness session to find and fix.
+- `systemctl restart preflight-watcher` (IGNORE_RE fix — sudo needed)
 - LCI: Tally form creation (~5 min, tally.so, Evan account only)
 - Launchpad Lint landing page (Render or Fly.io credentials)
 - Blog posts: new posts (3 per probe outlined, 0 additional since initial 3)
 
 ## Recent decisions
 
+- **2026-05-23 — Preflight probe Decision written** (`13d2d73`): `decision_type=pause` — probe done, surface continues, future evidence measured under ADR-0033 portfolio-layer metrics. Lossy adapter mapping `pause→kind:continue` acknowledged.
+- **2026-05-23 — Stale CURRENT_STATE.md claims corrected** (`46517f3`): watcher active (not dark), commercial signals exist (Apr-28 + May-22), adapter findings verdict'd in harness. All 3 were audit-trail drift.
 - **2026-05-21 — Portfolio framing adopted** (`f6f4c7a`): `memory/mission.md` updated with two-layer evaluation model (per-probe Stage-1 + portfolio passive-income). CURRENT_STATE.md received framing note. Stage-1 lane evidence preserved unchanged. Authorized via ADR-0033 + supervisor handoff.
 - **2026-04-24T12:25Z — Live verification pass** (session 65447b9d): Preflight landing 200 (4564B), blog 200 (3 posts live), LCI 200 (Tally placeholder). sourceType operational in deployed worker. No commits.
 - **2026-04-23 ~20:38Z — Activation status reconciliation** (`f66da7e`): preflight=`deployed` (Worker 200 verified), launchpad-lint=`partial`, LCI=`partial`.
@@ -78,8 +78,8 @@ A post-probe Decision artifact has now been written at `memory/venture/decisions
 
 ## What the next agent must read first
 
-1. **Probe is closed (Apr 25, inconclusive)** — write the Decision artifact if a verdict on the lane is wanted. **ESCALATED: 6 cycles — URGENT handoff written (2026-05-23).** See `runtime/.handoff/URGENT-skillfoundry-valuation-stale-open-loops.md`.
-2. **Portfolio framing is live** (`f6f4c7a`, 2026-05-21) — read `memory/mission.md` for the two-layer evaluation model before interpreting any evidence.
-3. **Watcher service check** — `journalctl -u preflight-watcher -n 20 --no-pager`. 35-day dark period. **ESCALATED: 6 cycles — URGENT handoff written (2026-05-23).**
-4. **Adapter review findings** — `skillfoundry-harness/.reviews/dcfd7e4-4d6050d-discovery-adapter-2026-04-23.md` — triage findings (1) and (2) for correctness impact. **ESCALATED: 6 cycles — URGENT handoff written (2026-05-23).**
-5. **CURRENT_STATE.md was updated by this reflection pass** — no commit needed unless the next session makes substantive changes.
+1. **Portfolio framing is live** (`f6f4c7a`, 2026-05-21) — read `memory/mission.md` for the two-layer evaluation model before interpreting any evidence.
+2. **Preflight probe is closed; Decision written** (`13d2d73`, 2026-05-23) — `decision_type=pause`. Surface stays up; future Preflight evidence goes to portfolio-layer ledger, not Stage-1. See `memory/venture/decisions/2026-04-25-park-preflight-distribution-signal-probe.md`.
+3. **`discovery_adapter.migrate` failure unresolved** — `events: {bad: 1}` at 02:30Z. Source doc unknown. Investigate in harness session before next migration run.
+4. **Post-window signals not in canon** — Apr-28 `MCPScoringEngine/1.0` + May-22 `Ae/JS 0.62.0` are ambient `external_conversation` evidence but have no canon Evidence envelopes. Under ADR-0033 these are the only passive acquisition signals in the sleeve.
+5. **CURRENT_STATE.md updated by reflection pass 14:24Z** — no commit needed unless next session makes substantive changes.
