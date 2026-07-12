@@ -2,7 +2,7 @@
 name: CURRENT_STATE
 description: Front door for skillfoundry-valuation-context — live venture-loop state and in-progress work
 type: front-door
-updated: 2026-05-24T14-24-49Z
+updated: 2026-07-12
 ---
 
 # CURRENT_STATE — skillfoundry-valuation-context
@@ -10,7 +10,7 @@ updated: 2026-05-24T14-24-49Z
 > Maintained by tick sessions and reflection passes.
 > **Accuracy over completeness.** Short and honest beats long and stale.
 
-**Last updated**: 2026-05-24T14:24:49Z (reflection pass — CURRENT_STATE.md edits uncommitted; no new commits; project stable)
+**Last updated**: 2026-07-12T21:45Z (attended session — LCI lane **parked** on explicit principal instruction; Decision `2026-07-12-park-launch-compliance-intelligence-lane` written. Probe + assumption → `parked`. Nothing sent externally; all artifacts preserved.)
 
 ---
 
@@ -37,14 +37,14 @@ Reviewed 2026-05-23T02:26Z against `preflight-real-user.log` directly. Prior "no
   - 2026-04-28T06:13:49Z — `MCPScoringEngine/1.0` cluster (4 `tools/call` sessions within 24ms; same source likely scoring multiple directories), `sourceType=user`.
   - 2026-05-22T08:32:00Z — `Ae/JS 0.62.0` single session, `sourceType=user`, `assumptionId: preflight-distribution-signal-assumption` (post-cutover slug).
   - Neither is a paid event. Both are passive `external_conversation`-class signals against the closed probe's assumption — useful for portfolio-layer "first passive paid event by channel" baseline (still zero), not useful for re-opening the Stage-1 probe (already closed).
-- **LCI**: no external contact. Tally form placeholder still showing (not functional).
+- **LCI**: **PARKED 2026-07-12** (`decision_type: pause`, reversible). Zero external contact — ever. All 10 outreach drafts unsent; the probe ran 79 days past its own `stale_close_date` at `status: active` and never made contact, so its `falsification_rule` was **never exercised**. The assumption is parked, **not falsified**. What failed is the channel claim (direct outreach requires principal-initiated contact, which this workspace does not do), not the problem claim. See `memory/venture/decisions/2026-07-12-park-launch-compliance-intelligence-lane.md`.
 
 Post-probe Decision artifact written at `memory/venture/decisions/2026-04-25-park-preflight-distribution-signal-probe.md` (`13d2d73`) — `decision_type=pause`, probe closed, surface continues under portfolio measurement. Principal override welcome. Post-window signals not in canon as Evidence envelopes (deferred; flagged as P3 since 4 reflection cycles — see reflection 2026-05-24T02:22:29Z).
 
 ## What's in progress
 
 - **Post-probe state**: The Preflight distribution probe closed ~2026-04-25. Decision artifact written (`13d2d73`): `decision_type=pause` — keep surface, re-baseline under ADR-0033 portfolio-layer metrics. Stage-1 ledger closed.
-- **Agentic inbound**: Preflight `status=deployed` (landing page + sourceType + MCP endpoint all live). Launchpad Lint: `status=partial` (AgenticMarket live; HTML landing blocked by Render/Fly credentials). LCI: `status=partial` (landing live; Tally form blocked).
+- **Agentic inbound**: Preflight `status=deployed` (landing page + sourceType + MCP endpoint all live). Launchpad Lint: `status=partial` (AgenticMarket live; HTML landing blocked by Render/Fly credentials). LCI: `status=parked` (landing page stays up at `lci.pages.dev`; the Tally form is **no longer a blocker** — it only ever existed to serve the now-parked outreach lane).
 - **`.canon/` adapter v1**: Pushed as of `f630675`. **3 adversarial review findings ARE verdict'd in harness — claim above was stale.** Finding 1 (`parse_probe` promotion bug) FIXED in `skillfoundry-harness/2f63ae5`; Finding 2 (silent enum coercion) FIXED in same commit (`AdapterParseError` now raised via `_resolve_enum`); Finding 3 (filesystem coupling) accepted-pending-scheduling ADR at `skillfoundry-harness/docs/adr-discovery-adapter-pure-parse-interface.md`. Post-review-triage commit was `664aba5` (2026-04-23).
 - **migrate.failure RESOLVED** (`9b87438`, 2026-05-23T22:54Z): `preflight-distribution-signal.md` reformatted with canonical header block. `migrate.py --dry-run` now: `events: 6 ok / 0 bad (rc=0)`. Two new canon envelopes emitted. 20+ cycle stderr warning closed.
 
@@ -52,19 +52,18 @@ Post-probe Decision artifact written at `memory/venture/decisions/2026-04-25-par
 
 - **Watcher IGNORE_RE fix not in service**: `real-user-watcher.sh` updated but `systemctl restart preflight-watcher` not run (sudo needed).
 - **latencyMs field is server processing time, NOT network round-trip.** ADR-0019 latency-floor discrimination invalid. Mozilla/Linux IGNORE_RE is interim gate only.
-- **LCI Tally form**: placeholder visible; Evan must create form at tally.so and paste embed code into `skillfoundry-products/products/lci/index.html`.
 - **`emit_policy_quality_note` datetime non-idempotence**: `datetime.utcnow()` in the harness adapter produces a fresh timestamp on every run, causing the policy file to diff from the committed version on each `migrate.py` invocation. Acknowledged in `9b87438` commit message; no tracking ticket.
 
 ## Blocked on (requires Evan)
 
 - `systemctl restart preflight-watcher` (IGNORE_RE fix — sudo needed)
-- LCI: Tally form creation (~5 min, tally.so, Evan account only)
 - Launchpad Lint landing page (Render or Fly.io credentials)
 - Blog posts: new posts (3 per probe outlined, 0 additional since initial 3)
 - **[DECISION]** Should Apr-28 + May-22 post-probe signals be written as Evidence envelopes now, or deferred until a paid event? (4 reflection cycles, no explicit ruling — see reflection 2026-05-24T02:22:29Z Q1)
 
 ## Recent decisions
 
+- **2026-07-12 — LCI lane PARKED** (`2026-07-12-park-launch-compliance-intelligence-lane`): `decision_type=pause`, reversible. Authority: **explicit principal instruction** — this is option 2 ("Park explicitly") of the three the system escalated on 2026-05-02/05-09. Probe + assumption → `parked`; outreach queue → **dormant**; 10 drafts and the full target list preserved; **zero messages sent**. The assumption is **not falsified** — the probe never made external contact. Closes a ~71-day escalation loop. An executive handoff proposing the same park was rejected fail-closed by the ADR-0047 provenance gate for missing `authority` and was **not executed**; the quarantined copies are preserved as evidence at `runtime/.handoff/REJECTED/`.
 - **2026-05-23 — migrate.failure root cause fixed** (`9b87438`): `preflight-distribution-signal.md` was using prose-format headers, not canonical backtick-key-value. Added canonical block; adapter now parses cleanly. Two new canon envelopes emitted. Closes 20+ cycle carry-forward.
 - **2026-05-23 — Preflight probe Decision written** (`13d2d73`): `decision_type=pause` — probe done, surface continues, future evidence measured under ADR-0033 portfolio-layer metrics. Lossy adapter mapping `pause→kind:continue` acknowledged.
 - **2026-05-23 — Stale CURRENT_STATE.md claims corrected** (`46517f3`): watcher active (not dark), commercial signals exist (Apr-28 + May-22), adapter findings verdict'd in harness. All 3 were audit-trail drift.
@@ -76,7 +75,7 @@ Post-probe Decision artifact written at `memory/venture/decisions/2026-04-25-par
 
 ## What the next agent must read first
 
-1. **[ACTION] Commit CURRENT_STATE.md** — this file has uncommitted edits from the 02:22:29Z reflection (migrate.failure RESOLVED, non-idempotence tracking added). Run `git add CURRENT_STATE.md && git commit` before any other work.
+1. **LCI is PARKED** (2026-07-12) — read `memory/venture/decisions/2026-07-12-park-launch-compliance-intelligence-lane.md`. Reversible `pause`, assumption preserved and **not falsified**. The outreach queue is **dormant and must not be sent**; it holds real named individuals and live contact addresses. Do not re-escalate LCI as an open blocker — the decision exists.
 2. **Portfolio framing is live** (`f6f4c7a`, 2026-05-21) — read `memory/mission.md` for the two-layer evaluation model before interpreting any evidence.
 3. **Preflight probe is closed; Decision written** (`13d2d73`, 2026-05-23) — `decision_type=pause`. Surface stays up; future Preflight evidence goes to portfolio-layer ledger, not Stage-1. See `memory/venture/decisions/2026-04-25-park-preflight-distribution-signal-probe.md`.
 4. **migrate.failure is resolved** (`9b87438`, 2026-05-23T22:54Z) — no lingering adapter issues. Canon has 6 event_log entries, all clean.
