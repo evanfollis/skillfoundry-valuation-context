@@ -11,6 +11,17 @@ This repository is the canonical context lineage for one Skillfoundry agent.
 The harness runs inside this repository root. Fresh runtime instances may come
 and go, but this context lineage remains the durable working mind.
 
+**Lifecycle:** active. This is the canonical Stage 1 valuation lineage, not an
+independently deployed service.
+
+**Verified today:** the declaration and pinned front door validate, the index
+builder has valid shell syntax, and patch hygiene passes through `make check`.
+This does not convert internal readiness into external commercial evidence.
+
+See [docs/architecture.md](docs/architecture.md) for authority boundaries and
+dated prompt-governance, provenance-path, runtime-path, and host-containment
+exceptions.
+
 ## Front Door
 
 - `memory/mission.md`

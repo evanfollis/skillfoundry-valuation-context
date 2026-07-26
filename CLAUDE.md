@@ -12,6 +12,9 @@ context-always-load:
   - memory/mission.md
   - memory/profiles/valuation.md
 
+Read and follow [AGENTS.md](AGENTS.md). The load block remains here until the
+ADR-0021 SessionStart hook reads `AGENTS.md` first.
+
 This is the canonical context lineage for the Skillfoundry valuation agent.
 CURRENT_STATE.md is maintained by tick sessions and reflection passes —
 read it first every session. The `memory/` tree holds the durable agent
