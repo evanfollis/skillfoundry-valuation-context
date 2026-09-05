@@ -11,9 +11,9 @@
 - `success_rule`: `at least one external builder completes the two-call workflow, reports materially reduced launch ambiguity, and produces an external commitment signal such as willingness to reuse, request for continued use, or other concrete paid-intent behavior`
 - `falsification_rule`: `if the lane remains live through the first launch cycle without external commitment, or if users complete the flow but still require heavy rewriting, do not mark the lane as a commercial continue`
 - `started_at`: `2026-04-10T20:55:17Z`
-- `ended_at`: `(open)`
+- `ended_at`: `2026-09-05T03:45:00Z`
 - `stale_close_date`: `2026-04-24`
-- `status`: `active`
+- `status`: `closed`
 - `owner`: `skillfoundry`
 
 ## External Surface
@@ -36,3 +36,7 @@ Without one of these, the listing will sit passively.
 
 - Operational health and listing visibility are necessary preconditions.
 - The probe does not count as commercially successful until external commitment or transaction evidence appears.
+
+## Close note — 2026-09-05
+
+The probe closed under Decision `2026-09-05-pause-launchpad-lint-stage1-probe` after remaining open more than four months beyond its stale-close date. AgenticMarket's five reported installs are weak commitment to try and support discoverability, but the declared success rule was not met: no completed production workflow, feedback, reuse, or payment was observed. The product surface remains live under portfolio measurement.

@@ -1,9 +1,9 @@
 # Activation: Preflight — agentic inbound funnel
 
 - `probe_id`: `preflight-distribution-signal`
-- `status`: `deployed` — Worker live at https://preflight.skillfoundry.workers.dev/ with landing page + sourceType + MCP endpoint all active
+- `status`: `deployed` — owned gateway and Worker surfaces are live with landing page, REST API, health, and MCP routes
 - `created_at`: `2026-04-17T20:38Z`
-- `updated_at`: `2026-04-23T20:33Z`
+- `updated_at`: `2026-09-05T03:40Z`
 
 ## Persona
 
@@ -16,7 +16,7 @@
 
 - **Public MCP endpoint**: `https://skillfoundry.synaplex.ai/products/preflight/mcp/`
 - **Deployment**: Cloudflare Worker (wrangler), served via Node.js local server + cloudflared tunnel at `127.0.0.1:8030`
-- **Landing page**: Route `/` not yet handled — serves 404 or empty response. Landing page scaffold at `products/preflight/src/index.ts` needs a GET `/` handler added.
+- **Landing page**: live at the owned route and direct Worker origin.
 
 ## Landing page — content specification
 
@@ -57,22 +57,14 @@ Status: outlines written above. Full drafts pending blog publishing infrastructu
 
 ## Telemetry channel
 
-- **Existing channel**: journalctl -u preflight → `real-user-watcher.sh` → `/opt/workspace/runtime/.alerts/preflight-real-user.log`
-- **sourceType field**: code_landed (4907d26), not deployed. Once deployed, agentic-inbound traffic from landing page should set `X-Source-Type: user` or omit (defaults to `user`).
-- **Inbound-specific tagging**: Add `referrer` field to telemetry (from `Referer` HTTP header). Landing page → MCP calls will carry `Referer: https://skillfoundry.synaplex.ai/products/preflight/`. This distinguishes landing-page-driven traffic from direct API access.
-- **Blog post UTM**: Link from blog posts to try-it flow with `?utm_source=blog&utm_campaign=preflight-inbound`. Worker can parse and emit in telemetry.
-
-## Deployment gap (what Evan must provision)
-
-1. **Wrangler credentials**: `wrangler deploy` needs Cloudflare account token. Not installed on server as of 2026-04-17.
-2. **Landing page route**: GET `/` handler in `products/preflight/src/index.ts` needs to be written and deployed. Scaffold spec above.
-3. **Blog hosting**: Either add blog routes to the existing worker, or use a static site on a subdomain. Requires DNS/hosting choice.
-4. **Demo video**: Requires screen recording tool or text-to-video service access.
-5. **sourceType deploy gap**: Run `npm run deploy` from `products/preflight/` once wrangler is configured. This lands sourceType and referrer tracking.
+- **Existing channel**: `journalctl -u preflight` → conservative traffic classifier → `/opt/workspace/runtime/.alerts/preflight-real-user.log`.
+- **sourceType field**: deployed, but caller-controlled and defaulting to `user`; it cannot by itself prove human use. Known crawler/audit user-agents are classified separately, and every remaining call is an unattributed candidate until reviewed.
+- **Verified 7-day window on 2026-09-05**: 14,594 total events, 8,555 transport sessions, and 30 `tools/call` events. All 30 calls matched known automation; 623 sessions were unattributed but none invoked a tool. No payment evidence exists in this telemetry.
+- **Interpretation**: transport and discovery are functioning. Current traffic is crawler/auditor attention, not evidence of buyer demand.
 
 ## CURRENT_STATE update
 
 - **2026-04-17**: stalled — activation metric met but no inbound funnel
 - **2026-04-18**: deployed — Worker live, landing page + MCP endpoint + sourceType all live; watcher IGNORE_RE active
 - **2026-04-23 (this tick)**: status reconciled to `deployed`. 1 confirmed real user (Apr 14 curl/8.5.0). Blog post live. External URL verified: https://preflight.skillfoundry.workers.dev/ returns 200.
-- **Next action**: drive organic search traffic; monitor telemetry for external_conversation evidence before probe window closes 2026-04-25
+- **2026-09-05**: measurement language corrected. The watcher now emits candidate-review alerts rather than automatically calling unknown agents real users, and the usage report separates known automation, internal traffic, and unattributed traffic.

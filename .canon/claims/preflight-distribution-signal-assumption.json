@@ -29,7 +29,7 @@
     "Claim"
   ],
   "sources": [],
-  "spec_version": "0.1.0",
+  "spec_version": "0.2.0",
   "statement": "MCP server builders have enough uncertainty about publish-readiness (registry schema, Smithery listing shape, npm metadata) that they will voluntarily invoke a free automated check",
   "thresholds": {}
 }

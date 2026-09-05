@@ -8,10 +8,10 @@
   "layer": "L3",
   "methodology_log": {
     "artifact": {
-      "content_hash": "sha256:19024ef00df5375391240ea233544f4be0423e21a4ed1fbd4f153e7e475fc2fd",
+      "content_hash": "sha256:a8c67fafa1afd2ec4697f610dee455aae5619e9f8b54cba334ddfa369a1262fb",
       "media_type": "text/markdown",
       "uri": "file:///opt/workspace/projects/skillfoundry/skillfoundry-valuation-context/memory/venture/probes/launchpad-lint-agenticmarket-live-listing.md",
-      "version": "1776962711"
+      "version": "1788579731"
     },
     "summary": "remote_mcp_server"
   },
@@ -21,6 +21,6 @@
     "EventLogEntry"
   ],
   "sources": [],
-  "spec_version": "0.1.0",
+  "spec_version": "0.2.0",
   "subject_id": "launchpad-lint-first-external-commitment"
 }

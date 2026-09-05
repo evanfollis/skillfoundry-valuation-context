@@ -1,0 +1,41 @@
+{
+  "binding": "binding",
+  "candidate_claims": [
+    "launchpad-lint-first-external-commitment"
+  ],
+  "chosen_claim_id": "launchpad-lint-first-external-commitment",
+  "cited_evidence": [
+    "2026-04-11-launchpad-lint-agenticmarket-live-listing",
+    "2026-09-05-launchpad-lint-marketplace-activation"
+  ],
+  "emitted_at": "2026-09-05T03:45:00Z",
+  "emitter": "L3:skillfoundry",
+  "exposure": {
+    "blast_radius": "local",
+    "capital_at_risk": 0,
+    "correlation_tags": [
+      "skillfoundry-valuation"
+    ],
+    "reversibility": "reversible",
+    "time_to_realization": "P14D"
+  },
+  "id": "2026-09-05-pause-launchpad-lint-stage1-probe",
+  "instance_id": "skillfoundry-valuation-context",
+  "kind": "continue",
+  "layer": "L3",
+  "object_type": "Decision",
+  "policies_in_force": [
+    {
+      "class": "operational",
+      "policy_id": "skillfoundry.evidence_quality_note",
+      "version": "1"
+    }
+  ],
+  "rationale": "[skillfoundry-type=pause] The probe passed its 2026-04-24 stale-close date by more than four months. Five public AgenticMarket installs support passive discoverability, but no completed production workflow, feedback, repeat use, or external transaction has been observed. Keeping the Stage-1 probe active would confuse a weak install signal with the stronger success rule it declared.",
+  "role_declared_at": "2026-09-05T03:45:00Z",
+  "roles": [
+    "Decision"
+  ],
+  "sources": [],
+  "spec_version": "0.2.0"
+}

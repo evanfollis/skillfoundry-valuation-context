@@ -29,7 +29,7 @@
     "Claim"
   ],
   "sources": [],
-  "spec_version": "0.1.0",
+  "spec_version": "0.2.0",
   "statement": "builders preparing an MCP launch have enough uncertainty around readiness, listing shape, and launch-package quality that they will pay for a narrow audit-plus-draft workflow",
   "thresholds": {}
 }

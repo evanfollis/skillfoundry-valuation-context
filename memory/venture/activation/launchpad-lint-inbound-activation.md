@@ -1,9 +1,9 @@
 # Activation: Launchpad Lint — agentic inbound funnel
 
 - `probe_id`: `launchpad-lint-agenticmarket-live-listing`
-- `status`: `partial` — AgenticMarket listing live (passive inbound); landing page and telemetry not yet deployed (Render deploy on separate track, fly CLI not installed on server)
+- `status`: `deployed` — AgenticMarket listing and owned Hetzner route are live; useful HTML front door and clean production telemetry cutover landed 2026-09-05
 - `created_at`: `2026-04-17T20:38Z`
-- `updated_at`: `2026-04-23T20:33Z`
+- `updated_at`: `2026-09-05T03:40Z`
 
 ## Persona
 
@@ -15,10 +15,10 @@
 ## Product surface (existing infrastructure)
 
 - **Public MCP endpoint**: `https://skillfoundry.synaplex.ai/products/launchpad-lint/mcp/`
-- **Deployment**: Fly.io + Render (both configs present). `fly deploy` / Render auto-deploy via git push.
+- **Deployment**: systemd on the owned Hetzner host behind the Skillfoundry nginx gateway. Fly.io and Render files remain portability artifacts, not the active deploy.
 - **Runtime**: Python FastAPI, Dockerfile-based
 - **Agenticmarket listing**: active. Serves as passive inbound already — builders finding it via agenticmarket discovery.
-- **Landing page**: `/` route exists (FastAPI default or custom). Check if it renders useful content or just health/404.
+- **Landing page**: `/` now explains the product and provides an open REST audit example. The MCP route remains protected for the authorized marketplace proxy.
 
 ## Landing page — content specification
 
@@ -52,21 +52,14 @@ Status: outlines written above. Full drafts pending blog hosting setup.
 
 ## Telemetry channel
 
-- **Existing channel**: Fly.io / Render service logs. No watcher script equivalent yet.
-- **Needed**: telemetry parity with preflight — emit structured events per invocation with `userAgent`, `sourceType`, `referrer`, `toolName`, `verdict`.
-- **Inbound tagging**: UTM from landing page → try-it flow. `Referer` header from landing page visits.
-
-## Deployment gap (what Evan must provision)
-
-1. **fly CLI credentials**: `fly auth login` or FLYCTL_TOKEN env var. Not installed on server as of 2026-04-17.
-2. **Render auto-deploy**: if using Render, git push to main triggers deploy — no local creds needed, just push access.
-3. **Landing page route**: Check if `/` returns useful content; if not, add it before promoting the inbound funnel.
-4. **Telemetry retrofit**: Add structured telemetry emit matching preflight schema before driving traffic.
-5. **Blog hosting**: same constraint as preflight.
+- **Production path**: `/opt/workspace/runtime/projects/skillfoundry/launchpad-lint/telemetry.ndjson`.
+- **Cutover rule**: events in the old repository-local artifact are development/test history and must not be counted as production demand. The service now labels new events `environment=production` and writes them outside the Git worktree.
+- **Current signal**: AgenticMarket shows 5 installs and 1 star as of 2026-09-05. No production `tool_completed` event, feedback record, external transaction, or repeat-use evidence has been observed.
+- **Known gap**: MCP transport probes appear in journald, but the current tool instrumentation only emits when a product tool actually runs. This is acceptable for demand measurement: health probes are not activation.
 
 ## CURRENT_STATE update
 
 - **2026-04-17**: stalled — agenticmarket listing live but no active conversion channel
 - **2026-04-18**: blog post live; landing page spec written; Render deploy blocked (fly CLI not installed on Hetzner server)
-- **2026-04-23 (this tick)**: status reconciled to `partial`. AgenticMarket listing is live passive inbound. Blog post live at skillfoundry-blog.pages.dev. Landing page + telemetry deferred until Render/fly credentials available.
-- **Remaining blocker**: Render account credentials or fly.io auth token needed to deploy landing page. No local server-side deploy path without these.
+- **2026-04-23**: status reconciled to `partial`. AgenticMarket listing was live passive inbound; the owned route still returned a plaintext stub.
+- **2026-09-05**: the owned route, production environment label, and runtime telemetry location were repaired on the existing host. AgenticMarket publicly reports 5 installs and 1 star. The probe still has no observed completed workflow, feedback, repeat use, or transaction; do not read install count as commercial validation.

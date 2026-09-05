@@ -43,7 +43,7 @@
   },
   "scope": "L3:skillfoundry-valuation-context",
   "sources": [],
-  "spec_version": "0.1.0",
+  "spec_version": "0.2.0",
   "value": {
     "location": "artifact body of each Evidence envelope",
     "note": "Skillfoundry markdown Evidence records carry an `evidence_quality` label that canon does not model directly (canon.Evidence has `tier` for bindingness, not for quality). The label is preserved in the ArtifactPointer-referenced markdown and can be extracted by re-parsing the artifact if needed. Promoting quality to a first-class canon field requires a canon spec bump (v0.2.0).",
